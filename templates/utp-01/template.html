@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, initial-scale=1.0" />
+  <title>UTP 01</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="slide">
+    <img class="base-image" src="assets/base-slide.png" alt="" />
+
+    <section class="content-card" aria-label="Текст слайда">
+      <div class="copy-area">
+        <h1 class="headline">МЕРКУРИЙ НЕ ВИДИТ КАРТУ?</h1>
+
+        <p class="description">
+          Чаще всего причина не в водителе. Проблема может быть в карте,
+          считывателе, настройках или самом тахографе.
+        </p>
+      </div>
+
+      <button class="cta-button">Смотри до конца, чтобы узнать решение →</button>
+    </section>
+
+    <div class="logo-text" aria-label="УРАЛТРЕКПРО">
+      <span class="logo-main">УРАЛТРЕК</span><span class="logo-pro">ПРО</span>
+    </div>
+  </main>
+
+  <script>
+    const headline = document.querySelector('.headline');
+    const description = document.querySelector('.description');
+    const button = document.querySelector('.cta-button');
+    const contentCard = document.querySelector('.content-card');
+    const copyArea = document.querySelector('.copy-area');
+
+    function setFontSizes(headlineSize, descriptionSize) {
+      headline.style.fontSize = `${headlineSize}px`;
+      description.style.fontSize = `${descriptionSize}px`;
+    }
+
+    function isContentFitting() {
+      const cardRect = contentCard.getBoundingClientRect();
+      const copyRect = copyArea.getBoundingClientRect();
+      const buttonRect = button.getBoundingClientRect();
+
+      return (
+        copyRect.bottom + 34 <= buttonRect.top &&
+        buttonRect.bottom + 44 <= cardRect.bottom
+      );
+    }
+
+    function fitSlideText() {
+      let headlineSize = 76;
+      let descriptionSize = 33;
+
+      setFontSizes(headlineSize, descriptionSize);
+
+      while (!isContentFitting() && (headlineSize > 46 || descriptionSize > 23)) {
+        if (headlineSize > 46) headlineSize -= 2;
+        if (descriptionSize > 24) descriptionSize -= 1;
+        setFontSizes(headlineSize, descriptionSize);
+      }
+    }
+
+    window.applySlideData = (slideData) => {
+      headline.textContent = slideData.headline;
+      description.textContent = slideData.description;
+      button.textContent = `${slideData.button} →`;
+      fitSlideText();
+    };
+
+    fitSlideText();
+  </script>
+</body>
+</html>

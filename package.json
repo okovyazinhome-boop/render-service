@@ -1,0 +1,15 @@
+{
+  "name": "render-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "puppeteer": "^25.0.2"
+  },
+  "devDependencies": {}
+}
