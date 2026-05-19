@@ -1,0 +1,19 @@
+{
+  "templateId": "utp-01-risk",
+  "width": 1080,
+  "height": 1920,
+  "fields": {
+    "headline": {
+      "required": true,
+      "maxChars": 50
+    },
+    "description": {
+      "required": true,
+      "maxChars": 120
+    },
+    "amount": {
+      "required": true,
+      "maxChars": 20
+    }
+  }
+}

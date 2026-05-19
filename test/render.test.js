@@ -32,11 +32,52 @@ function close(server) {
 
 function makeSlide(index) {
   return {
-    templateId: 'utp-01',
+    templateId: 'utp-01-hook',
     headline: `СЛАЙД ${index}: МЕРКУРИЙ НЕ ВИДИТ КАРТУ?`,
     description: 'Проверяем генерацию нескольких PNG в одном запросе для последующей сборки ролика через FFmpeg.',
     button: 'Смотри до конца, чтобы узнать решение'
   };
+}
+
+function makeSixSlideSeries() {
+  return [
+    {
+      templateId: 'utp-01-hook',
+      headline: 'МЕРКУРИЙ НЕ ВИДИТ КАРТУ?',
+      description: 'Чаще всего причина не в водителе. Проблема может быть в карте, считывателе, настройках или самом тахографе.',
+      button: 'Смотри до конца, чтобы узнать решение'
+    },
+    {
+      templateId: 'utp-01-pain',
+      headline: 'ВОДИТЕЛЬ ЖАЛУЕТСЯ, А ПРОБЛЕМА В ТАХОГРАФЕ',
+      description: 'Карта не читается, появляются ошибки, рейс затягивается, а причина не всегда очевидна.'
+    },
+    {
+      templateId: 'utp-01-error',
+      headline: 'ТАХОГРАФ НЕ ВИДИТ КАРТУ ВОДИТЕЛЯ?',
+      badge: 'Частая ошибка',
+      description: 'Проблема может быть в карте, считывателе или настройках.'
+    },
+    {
+      templateId: 'utp-01-risk',
+      headline: 'ШТРАФЫ ЗА ТАХОГРАФ',
+      description: 'За отсутствие, неисправность или нарушения в работе тахографа.',
+      amount: 'до 50 000 ₽'
+    },
+    {
+      templateId: 'utp-01-solution',
+      headline: 'РЕШЕНИЕ ЕСТЬ',
+      subheadline: 'Проверьте тахограф и устраните сбой вовремя'
+    },
+    {
+      templateId: 'utp-01-cta',
+      item1: 'Работаем по Уралу',
+      item2: 'На рынке уже 15 лет',
+      item3: 'Диагностика, установка и обслуживание тахографов',
+      phone: '+7 (900) 198-77-55',
+      footerText: 'Звоните или пишите — подскажем, что делать'
+    }
+  ];
 }
 
 test('removes output project folders older than ttl', () => {
@@ -82,7 +123,7 @@ test('renders slides and returns PNG paths', async () => {
         projectId: 'test-video',
         slides: [
           {
-            templateId: 'utp-01',
+            templateId: 'utp-01-hook',
             headline: 'МЕРКУРИЙ НЕ ВИДИТ КАРТУ?',
             description: 'Чаще всего причина не в водителе. Проблема может быть в карте, считывателе, настройках или самом тахографе.',
             button: 'Смотри до конца, чтобы узнать решение'
@@ -117,24 +158,41 @@ test('lists available templates with their schemas', async () => {
     const payload = await response.json();
 
     assert.equal(payload.ok, true);
-    assert.deepEqual(payload.templates, [
+    assert.deepEqual(
+      payload.templates.map((template) => template.templateId),
+      [
+        'utp-01-cta',
+        'utp-01-error',
+        'utp-01-hook',
+        'utp-01-pain',
+        'utp-01-risk',
+        'utp-01-solution'
+      ]
+    );
+    assert.deepEqual(
+      payload.templates.find((template) => template.templateId === 'utp-01-hook').fields,
       {
-        templateId: 'utp-01',
-        width: 1080,
-        height: 1920,
-        fields: {
-          headline: { required: true, maxChars: 65 },
-          description: { required: true, maxChars: 180 },
-          button: { required: true, maxChars: 55 }
-        }
+        headline: { required: true, maxChars: 65 },
+        description: { required: true, maxChars: 180 },
+        button: { required: true, maxChars: 55 }
       }
-    ]);
+    );
+    assert.deepEqual(
+      payload.templates.find((template) => template.templateId === 'utp-01-cta').fields,
+      {
+        item1: { required: true, maxChars: 60 },
+        item2: { required: true, maxChars: 60 },
+        item3: { required: true, maxChars: 90 },
+        phone: { required: true, maxChars: 30 },
+        footerText: { required: true, maxChars: 70 }
+      }
+    );
   } finally {
     await close(server);
   }
 });
 
-test('renders five slides in one request and returns ordered files', async () => {
+test('renders six UTP 01 slides in one request and returns ordered files', async () => {
   const rootDir = path.resolve(__dirname, '..');
   const server = createRenderServer({ rootDir });
   const port = await listen(server);
@@ -144,8 +202,8 @@ test('renders five slides in one request and returns ordered files', async () =>
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        projectId: 'five-slide-video',
-        slides: [1, 2, 3, 4, 5].map(makeSlide)
+        projectId: 'six-slide-video',
+        slides: makeSixSlideSeries()
       })
     });
 
@@ -153,14 +211,15 @@ test('renders five slides in one request and returns ordered files', async () =>
     const payload = await response.json();
 
     assert.equal(payload.ok, true);
-    assert.equal(payload.projectId, 'five-slide-video');
-    assert.equal(payload.count, 5);
+    assert.equal(payload.projectId, 'six-slide-video');
+    assert.equal(payload.count, 6);
     assert.deepEqual(payload.files, [
-      '/output/five-slide-video/slide-01.png',
-      '/output/five-slide-video/slide-02.png',
-      '/output/five-slide-video/slide-03.png',
-      '/output/five-slide-video/slide-04.png',
-      '/output/five-slide-video/slide-05.png'
+      '/output/six-slide-video/slide-01.png',
+      '/output/six-slide-video/slide-02.png',
+      '/output/six-slide-video/slide-03.png',
+      '/output/six-slide-video/slide-04.png',
+      '/output/six-slide-video/slide-05.png',
+      '/output/six-slide-video/slide-06.png'
     ]);
 
     for (const file of payload.files) {
@@ -266,7 +325,7 @@ test('rejects slides that miss required template fields', async () => {
         projectId: 'bad-video',
         slides: [
           {
-            templateId: 'utp-01',
+            templateId: 'utp-01-hook',
             headline: 'МЕРКУРИЙ НЕ ВИДИТ КАРТУ?'
           }
         ]

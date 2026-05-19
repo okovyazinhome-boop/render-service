@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, initial-scale=1.0" />
+  <title>UTP 01 Solution</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="slide">
+    <img class="base-image" src="assets/base-slide.png" alt="" />
+
+    <section class="copy-block">
+      <h1 class="headline fit-text" data-start-size="126" data-min-size="70">РЕШЕНИЕ ЕСТЬ</h1>
+      <p class="subheadline fit-text" data-start-size="52" data-min-size="32">Проверьте тахограф и устраните сбой вовремя</p>
+    </section>
+  </main>
+
+  <script>
+    function paintHeadline(value) {
+      const words = value.trim().split(/\s+/);
+      const last = words.pop() || '';
+      const first = words.join(' ');
+      const headline = document.querySelector('.headline');
+
+      headline.innerHTML = '';
+      if (first) {
+        headline.append(document.createTextNode(`${first} `));
+      }
+
+      const accent = document.createElement('span');
+      accent.className = 'accent';
+      accent.textContent = last;
+      headline.append(accent);
+    }
+
+    function fitText() {
+      for (const element of document.querySelectorAll('.fit-text')) {
+        let size = Number(element.dataset.startSize);
+        const min = Number(element.dataset.minSize);
+        element.style.fontSize = `${size}px`;
+
+        while (
+          size > min &&
+          (element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth)
+        ) {
+          size -= 2;
+          element.style.fontSize = `${size}px`;
+        }
+      }
+    }
+
+    window.applySlideData = (slideData) => {
+      paintHeadline(slideData.headline);
+      document.querySelector('.subheadline').textContent = slideData.subheadline;
+      fitText();
+    };
+
+    paintHeadline(document.querySelector('.headline').textContent);
+    fitText();
+  </script>
+</body>
+</html>

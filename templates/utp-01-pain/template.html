@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, initial-scale=1.0" />
+  <title>UTP 01 Pain</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="slide">
+    <img class="base-image" src="assets/base-slide.png" alt="" />
+
+    <h1 class="headline fit-text" data-start-size="88" data-min-size="54">ВОДИТЕЛЬ ЖАЛУЕТСЯ, А ПРОБЛЕМА В ТАХОГРАФЕ</h1>
+
+    <section class="description-card">
+      <p class="description fit-text" data-start-size="42" data-min-size="28">
+        Карта не читается, появляются ошибки, рейс затягивается, а причина не всегда очевидна.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    function fitText() {
+      for (const element of document.querySelectorAll('.fit-text')) {
+        let size = Number(element.dataset.startSize);
+        const min = Number(element.dataset.minSize);
+        element.style.fontSize = `${size}px`;
+
+        while (
+          size > min &&
+          (element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth)
+        ) {
+          size -= 2;
+          element.style.fontSize = `${size}px`;
+        }
+      }
+    }
+
+    window.applySlideData = (slideData) => {
+      document.querySelector('.headline').textContent = slideData.headline;
+      document.querySelector('.description').textContent = slideData.description;
+      fitText();
+    };
+
+    fitText();
+  </script>
+</body>
+</html>

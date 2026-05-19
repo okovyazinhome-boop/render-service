@@ -1,19 +1,15 @@
 {
-  "templateId": "utp-01",
+  "templateId": "utp-01-pain",
   "width": 1080,
   "height": 1920,
   "fields": {
     "headline": {
       "required": true,
-      "maxChars": 65
+      "maxChars": 95
     },
     "description": {
       "required": true,
-      "maxChars": 180
-    },
-    "button": {
-      "required": true,
-      "maxChars": 55
+      "maxChars": 170
     }
   }
 }

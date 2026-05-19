@@ -1,0 +1,27 @@
+{
+  "templateId": "utp-01-cta",
+  "width": 1080,
+  "height": 1920,
+  "fields": {
+    "item1": {
+      "required": true,
+      "maxChars": 60
+    },
+    "item2": {
+      "required": true,
+      "maxChars": 60
+    },
+    "item3": {
+      "required": true,
+      "maxChars": 90
+    },
+    "phone": {
+      "required": true,
+      "maxChars": 30
+    },
+    "footerText": {
+      "required": true,
+      "maxChars": 70
+    }
+  }
+}

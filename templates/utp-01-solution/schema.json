@@ -1,0 +1,15 @@
+{
+  "templateId": "utp-01-solution",
+  "width": 1080,
+  "height": 1920,
+  "fields": {
+    "headline": {
+      "required": true,
+      "maxChars": 40
+    },
+    "subheadline": {
+      "required": true,
+      "maxChars": 120
+    }
+  }
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, initial-scale=1.0" />
+  <title>UTP 01 CTA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="slide">
+    <img class="base-image" src="assets/base-slide.png" alt="" />
+
+    <section class="info-list">
+      <div class="info-row">
+        <span class="marker">1</span>
+        <p class="item item1 fit-text" data-start-size="33" data-min-size="24">Работаем по Уралу</p>
+      </div>
+      <div class="divider"></div>
+      <div class="info-row">
+        <span class="marker">2</span>
+        <p class="item item2 fit-text" data-start-size="33" data-min-size="24">На рынке уже 15 лет</p>
+      </div>
+      <div class="divider"></div>
+      <div class="info-row tall">
+        <span class="marker">3</span>
+        <p class="item item3 fit-text" data-start-size="33" data-min-size="22">Диагностика, установка и обслуживание тахографов</p>
+      </div>
+    </section>
+
+    <div class="phone-card">
+      <span class="phone-icon">+</span>
+      <p class="phone fit-text" data-start-size="48" data-min-size="34">+7 (900) 198-77-55</p>
+    </div>
+
+    <section class="footer-card">
+      <div class="logo-text" aria-label="УРАЛТРЕКПРО">
+        <span class="logo-main">УРАЛТРЕК</span><span class="logo-pro">ПРО</span>
+      </div>
+      <p class="footer-text fit-text" data-start-size="30" data-min-size="22">Звоните или пишите — подскажем, что делать</p>
+    </section>
+  </main>
+
+  <script>
+    function fitText() {
+      for (const element of document.querySelectorAll('.fit-text')) {
+        let size = Number(element.dataset.startSize);
+        const min = Number(element.dataset.minSize);
+        element.style.fontSize = `${size}px`;
+
+        while (
+          size > min &&
+          (element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth)
+        ) {
+          size -= 2;
+          element.style.fontSize = `${size}px`;
+        }
+      }
+    }
+
+    window.applySlideData = (slideData) => {
+      document.querySelector('.item1').textContent = slideData.item1;
+      document.querySelector('.item2').textContent = slideData.item2;
+      document.querySelector('.item3').textContent = slideData.item3;
+      document.querySelector('.phone').textContent = slideData.phone;
+      document.querySelector('.footer-text').textContent = slideData.footerText;
+      fitText();
+    };
+
+    fitText();
+  </script>
+</body>
+</html>

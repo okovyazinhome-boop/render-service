@@ -1,0 +1,102 @@
+@import "../../node_modules/@fontsource/inter/cyrillic-700.css";
+@import "../../node_modules/@fontsource/inter/cyrillic-800.css";
+@import "../../node_modules/@fontsource/inter/cyrillic-900.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 1080px;
+  height: 1920px;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  background: #f7f7fb;
+}
+
+.slide {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+}
+
+.base-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.copy-block {
+  position: absolute;
+  left: 58px;
+  top: 330px;
+  width: 500px;
+  color: #ffffff;
+}
+
+.headline {
+  width: 500px;
+  height: 250px;
+  margin: 0;
+  font-size: 82px;
+  line-height: 1.04;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-shadow: 0 12px 34px rgba(22, 12, 62, 0.22);
+}
+
+.description {
+  width: 500px;
+  height: 130px;
+  margin: 26px 0 0;
+  font-size: 34px;
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.amount-card {
+  width: 470px;
+  height: 138px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 54px;
+  padding: 0 30px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #715cff, #6958f4);
+  color: #ffffff;
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0;
+  box-shadow: 0 28px 62px rgba(105, 88, 244, 0.36);
+}
+
+.logo-text {
+  position: absolute;
+  left: 58px;
+  bottom: 92px;
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.logo-main {
+  color: #ffffff;
+}
+
+.logo-pro {
+  color: #6958f4;
+}

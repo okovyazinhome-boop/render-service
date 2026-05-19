@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, initial-scale=1.0" />
+  <title>UTP 01 Risk</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="slide">
+    <img class="base-image" src="assets/base-slide.png" alt="" />
+
+    <section class="copy-block">
+      <h1 class="headline fit-text" data-start-size="82" data-min-size="52">ШТРАФЫ ЗА ТАХОГРАФ</h1>
+      <p class="description fit-text" data-start-size="34" data-min-size="24">За отсутствие, неисправность или нарушения в работе тахографа.</p>
+      <div class="amount-card fit-text" data-start-size="72" data-min-size="42">до 50 000 ₽</div>
+    </section>
+
+    <div class="logo-text" aria-label="УРАЛТРЕКПРО">
+      <span class="logo-main">УРАЛТРЕК</span><span class="logo-pro">ПРО</span>
+    </div>
+  </main>
+
+  <script>
+    function fitText() {
+      for (const element of document.querySelectorAll('.fit-text')) {
+        let size = Number(element.dataset.startSize);
+        const min = Number(element.dataset.minSize);
+        element.style.fontSize = `${size}px`;
+
+        while (
+          size > min &&
+          (element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth)
+        ) {
+          size -= 2;
+          element.style.fontSize = `${size}px`;
+        }
+      }
+    }
+
+    window.applySlideData = (slideData) => {
+      document.querySelector('.headline').textContent = slideData.headline;
+      document.querySelector('.description').textContent = slideData.description;
+      document.querySelector('.amount-card').textContent = slideData.amount;
+      fitText();
+    };
+
+    fitText();
+  </script>
+</body>
+</html>
