@@ -1,6 +1,7 @@
 @import "../../node_modules/@fontsource/inter/cyrillic-700.css";
 @import "../../node_modules/@fontsource/inter/cyrillic-800.css";
 @import "../../node_modules/@fontsource/inter/cyrillic-900.css";
+@import "../../node_modules/@fontsource/oswald/cyrillic-700.css";
 
 * {
   box-sizing: border-box;
@@ -47,9 +48,10 @@ body {
   height: 320px;
   margin: 0;
   color: #0d0d10;
-  font-size: 126px;
+  font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
+  font-size: 148px;
   line-height: 1.02;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -63,9 +65,10 @@ body {
   height: 170px;
   margin: 52px auto 0;
   color: #0d0d10;
-  font-size: 52px;
+  font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
+  font-size: 60px;
   line-height: 1.24;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
   text-transform: uppercase;
 }

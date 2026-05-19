@@ -52,13 +52,13 @@
     }
 
     function fitSlideText() {
-      let headlineSize = 76;
+      let headlineSize = 84;
       let descriptionSize = 33;
 
       setFontSizes(headlineSize, descriptionSize);
 
-      while (!isContentFitting() && (headlineSize > 46 || descriptionSize > 23)) {
-        if (headlineSize > 46) headlineSize -= 2;
+      while (!isContentFitting() && (headlineSize > 50 || descriptionSize > 23)) {
+        if (headlineSize > 50) headlineSize -= 2;
         if (descriptionSize > 24) descriptionSize -= 1;
         setFontSizes(headlineSize, descriptionSize);
       }
