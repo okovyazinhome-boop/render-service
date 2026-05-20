@@ -40,18 +40,38 @@ body {
 .headline {
   position: absolute;
   left: 92px;
-  top: 282px;
+  top: 270px;
   width: 885px;
-  height: 560px;
+  height: 590px;
   margin: 0;
   color: #ffffff;
   font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
-  font-size: 112px;
+  font-size: 122px;
   line-height: 1.02;
   font-weight: 700;
   letter-spacing: 0;
   text-transform: uppercase;
   text-shadow: 0 14px 36px rgba(255, 255, 255, 0.12);
+}
+
+.device-display-text {
+  position: absolute;
+  left: 270px;
+  top: 1122px;
+  width: 300px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
+  font-size: 54px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-shadow: 0 4px 12px rgba(28, 16, 92, 0.48);
+  transform: rotate(-1deg);
 }
 
 .badge {
