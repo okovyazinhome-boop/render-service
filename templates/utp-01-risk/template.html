@@ -16,6 +16,8 @@
       <div class="amount-card fit-text" data-start-size="80" data-min-size="42">до 50 000 ₽</div>
     </section>
 
+    <div class="device-display-text">ШТРАФ</div>
+
     <div class="logo-text" aria-label="УРАЛТРЕКПРО">
       <span class="logo-main">УРАЛТРЕК</span><span class="logo-pro">ПРО</span>
     </div>
@@ -56,12 +58,20 @@
       }
 
       amount.innerHTML = '';
-      amount.append(document.createTextNode(rubleMatch[1].trimEnd()));
+
+      const valueGroup = document.createElement('span');
+      valueGroup.className = 'amount-value';
+
+      const number = document.createElement('span');
+      number.className = 'amount-main';
+      number.textContent = rubleMatch[1].trimEnd();
 
       const ruble = document.createElement('span');
       ruble.className = 'amount-ruble';
       ruble.textContent = 'руб.';
-      amount.append(ruble);
+
+      valueGroup.append(number, ruble);
+      amount.append(valueGroup);
     }
 
     setAmount(document.querySelector('.amount-card').textContent);

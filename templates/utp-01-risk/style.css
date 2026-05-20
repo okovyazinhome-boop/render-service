@@ -87,14 +87,47 @@ body {
   box-shadow: 0 28px 62px rgba(105, 88, 244, 0.36);
 }
 
+.amount-value {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  max-width: 100%;
+  line-height: 0.88;
+  white-space: nowrap;
+}
+
+.amount-main {
+  display: inline-block;
+}
+
 .amount-ruble {
   display: inline-block;
   margin-left: 12px;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-size: 0.42em;
   font-weight: 900;
-  line-height: 1;
+  line-height: 0.88;
   text-transform: uppercase;
+}
+
+.device-display-text {
+  position: absolute;
+  left: 286px;
+  top: 1322px;
+  width: 330px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
+  font-size: 54px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-shadow: 0 4px 12px rgba(28, 16, 92, 0.45);
+  transform: rotate(-1deg);
 }
 
 .logo-text {
