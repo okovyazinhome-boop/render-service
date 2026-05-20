@@ -54,51 +54,10 @@ body {
   text-shadow: 0 14px 36px rgba(255, 255, 255, 0.12);
 }
 
-.device-display-text {
-  position: absolute;
-  left: 270px;
-  top: 1122px;
-  width: 300px;
-  height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
-  font-size: 54px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  text-shadow: 0 4px 12px rgba(28, 16, 92, 0.48);
-  transform: rotate(-1deg);
-}
-
-.badge {
-  position: absolute;
-  left: 104px;
-  top: 1372px;
-  min-width: 290px;
-  max-width: 520px;
-  height: 76px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 32px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #6958f4, #7a4cff);
-  color: #ffffff;
-  font-size: 34px;
-  line-height: 1;
-  font-weight: 500;
-  letter-spacing: 0;
-  box-shadow: 0 18px 38px rgba(105, 88, 244, 0.38);
-}
-
 .description {
   position: absolute;
   left: 104px;
-  top: 1478px;
+  top: 1590px;
   width: 860px;
   height: 160px;
   margin: 0;
@@ -107,25 +66,4 @@ body {
   line-height: 1.22;
   font-weight: 400;
   letter-spacing: 0;
-}
-
-.logo-text {
-  position: absolute;
-  left: 50%;
-  bottom: 90px;
-  transform: translateX(-50%);
-  font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
-  font-size: 44px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 0;
-  white-space: nowrap;
-}
-
-.logo-main {
-  color: #ffffff;
-}
-
-.logo-pro {
-  color: #6958f4;
 }

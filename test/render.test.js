@@ -55,7 +55,6 @@ function makeSixSlideSeries() {
     {
       templateId: 'utp-01-error',
       headline: 'ТАХОГРАФ НЕ ВИДИТ КАРТУ ВОДИТЕЛЯ?',
-      badge: 'Частая ошибка',
       description: 'Проблема может быть в карте, считывателе или настройках.'
     },
     {

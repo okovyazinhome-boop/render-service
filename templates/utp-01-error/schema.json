@@ -7,10 +7,6 @@
       "required": true,
       "maxChars": 80
     },
-    "badge": {
-      "required": true,
-      "maxChars": 30
-    },
     "description": {
       "required": true,
       "maxChars": 120

@@ -12,17 +12,9 @@
 
     <h1 class="headline fit-text" data-start-size="122" data-min-size="58">ТАХОГРАФ НЕ ВИДИТ КАРТУ ВОДИТЕЛЯ?</h1>
 
-    <div class="device-display-text">ОШИБКА</div>
-
-    <div class="badge fit-text" data-start-size="34" data-min-size="24">Частая ошибка</div>
-
     <p class="description fit-text" data-start-size="42" data-min-size="28">
       Проблема может быть в карте, считывателе или настройках.
     </p>
-
-    <div class="logo-text" aria-label="УРАЛТРЕКПРО">
-      <span class="logo-main">УРАЛТРЕК</span><span class="logo-pro">ПРО</span>
-    </div>
   </main>
 
   <script>
@@ -44,7 +36,6 @@
 
     window.applySlideData = (slideData) => {
       document.querySelector('.headline').textContent = slideData.headline;
-      document.querySelector('.badge').textContent = slideData.badge;
       document.querySelector('.description').textContent = slideData.description;
       fitText();
     };
