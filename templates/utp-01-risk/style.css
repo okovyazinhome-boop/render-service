@@ -87,6 +87,15 @@ body {
   box-shadow: 0 28px 62px rgba(105, 88, 244, 0.36);
 }
 
+.amount-ruble {
+  display: inline-block;
+  margin-left: 10px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 0.86em;
+  font-weight: 900;
+  line-height: 1;
+}
+
 .logo-text {
   position: absolute;
   left: 58px;

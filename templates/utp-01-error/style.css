@@ -40,13 +40,13 @@ body {
 .headline {
   position: absolute;
   left: 92px;
-  top: 220px;
+  top: 282px;
   width: 885px;
   height: 560px;
   margin: 0;
   color: #ffffff;
   font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
-  font-size: 96px;
+  font-size: 112px;
   line-height: 1.02;
   font-weight: 700;
   letter-spacing: 0;
