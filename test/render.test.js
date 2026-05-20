@@ -68,14 +68,6 @@ function makeSixSlideSeries() {
       templateId: 'utp-01-solution',
       headline: 'РЕШЕНИЕ ЕСТЬ',
       subheadline: 'Проверьте тахограф и устраните сбой вовремя'
-    },
-    {
-      templateId: 'utp-01-cta',
-      item1: 'Работаем по Уралу',
-      item2: 'На рынке уже 15 лет',
-      item3: 'Диагностика, установка и обслуживание тахографов',
-      phone: '+7 (900) 198-77-55',
-      footerText: 'Звоните или пишите — подскажем, что делать'
     }
   ];
 }
@@ -161,7 +153,6 @@ test('lists available templates with their schemas', async () => {
     assert.deepEqual(
       payload.templates.map((template) => template.templateId),
       [
-        'utp-01-cta',
         'utp-01-error',
         'utp-01-hook',
         'utp-01-pain',
@@ -177,22 +168,13 @@ test('lists available templates with their schemas', async () => {
         button: { required: true, maxChars: 55 }
       }
     );
-    assert.deepEqual(
-      payload.templates.find((template) => template.templateId === 'utp-01-cta').fields,
-      {
-        item1: { required: true, maxChars: 60 },
-        item2: { required: true, maxChars: 60 },
-        item3: { required: true, maxChars: 90 },
-        phone: { required: true, maxChars: 30 },
-        footerText: { required: true, maxChars: 70 }
-      }
-    );
+    assert.equal(payload.templates.some((template) => template.templateId === 'utp-01-cta'), false);
   } finally {
     await close(server);
   }
 });
 
-test('renders six UTP 01 slides in one request and returns ordered files', async () => {
+test('renders five UTP 01 slides in one request and returns ordered files', async () => {
   const rootDir = path.resolve(__dirname, '..');
   const server = createRenderServer({ rootDir });
   const port = await listen(server);
@@ -202,7 +184,7 @@ test('renders six UTP 01 slides in one request and returns ordered files', async
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        projectId: 'six-slide-video',
+        projectId: 'five-slide-video',
         slides: makeSixSlideSeries()
       })
     });
@@ -211,15 +193,14 @@ test('renders six UTP 01 slides in one request and returns ordered files', async
     const payload = await response.json();
 
     assert.equal(payload.ok, true);
-    assert.equal(payload.projectId, 'six-slide-video');
-    assert.equal(payload.count, 6);
+    assert.equal(payload.projectId, 'five-slide-video');
+    assert.equal(payload.count, 5);
     assert.deepEqual(payload.files, [
-      '/output/six-slide-video/slide-01.png',
-      '/output/six-slide-video/slide-02.png',
-      '/output/six-slide-video/slide-03.png',
-      '/output/six-slide-video/slide-04.png',
-      '/output/six-slide-video/slide-05.png',
-      '/output/six-slide-video/slide-06.png'
+      '/output/five-slide-video/slide-01.png',
+      '/output/five-slide-video/slide-02.png',
+      '/output/five-slide-video/slide-03.png',
+      '/output/five-slide-video/slide-04.png',
+      '/output/five-slide-video/slide-05.png'
     ]);
 
     for (const file of payload.files) {
