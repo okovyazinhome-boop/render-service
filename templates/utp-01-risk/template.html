@@ -13,7 +13,7 @@
     <section class="copy-block">
       <h1 class="headline fit-text" data-start-size="92" data-min-size="52">ШТРАФЫ ЗА ТАХОГРАФ</h1>
       <p class="description fit-text" data-start-size="34" data-min-size="24">За отсутствие, неисправность или нарушения в работе тахографа.</p>
-      <div class="amount-card fit-text" data-start-size="84" data-min-size="42">до 50 000 ₽</div>
+      <div class="amount-card fit-text" data-start-size="80" data-min-size="42">до 50 000 ₽</div>
     </section>
 
     <div class="logo-text" aria-label="УРАЛТРЕКПРО">
@@ -48,7 +48,7 @@
     function setAmount(value) {
       const amount = document.querySelector('.amount-card');
       const trimmed = value.trim();
-      const rubleMatch = trimmed.match(/^(.*?)(\s*₽)$/);
+      const rubleMatch = trimmed.match(/^(.*?)(\s*(?:₽|руб\.?))$/i);
 
       if (!rubleMatch) {
         amount.textContent = trimmed;
@@ -60,7 +60,7 @@
 
       const ruble = document.createElement('span');
       ruble.className = 'amount-ruble';
-      ruble.textContent = '₽';
+      ruble.textContent = 'руб.';
       amount.append(ruble);
     }
 
