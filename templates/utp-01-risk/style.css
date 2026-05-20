@@ -75,16 +75,15 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 54px;
-  padding: 0 30px;
-  border-radius: 28px;
-  background: linear-gradient(135deg, #715cff, #6958f4);
+  padding: 0 34px;
+  border-radius: 0;
+  background: transparent;
   color: #ffffff;
   font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
   font-size: 80px;
   line-height: 1;
   font-weight: 700;
   letter-spacing: 0;
-  box-shadow: 0 28px 62px rgba(105, 88, 244, 0.36);
 }
 
 .amount-value {
@@ -108,44 +107,4 @@ body {
   font-weight: 900;
   line-height: 0.88;
   text-transform: uppercase;
-}
-
-.device-display-text {
-  position: absolute;
-  left: 286px;
-  top: 1322px;
-  width: 330px;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
-  font-size: 54px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  text-shadow: 0 4px 12px rgba(28, 16, 92, 0.45);
-  transform: rotate(-1deg);
-}
-
-.logo-text {
-  position: absolute;
-  left: 58px;
-  bottom: 92px;
-  font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
-  font-size: 44px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 0;
-  white-space: nowrap;
-}
-
-.logo-main {
-  color: #ffffff;
-}
-
-.logo-pro {
-  color: #6958f4;
 }
