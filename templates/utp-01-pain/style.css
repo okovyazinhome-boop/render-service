@@ -40,13 +40,13 @@ body {
 .headline {
   position: absolute;
   left: 64px;
-  top: 156px;
+  top: 148px;
   width: 900px;
-  height: 560px;
+  height: 385px;
   margin: 0;
   color: #ffffff;
   font-family: "Oswald", "Inter", Arial, Helvetica, sans-serif;
-  font-size: 112px;
+  font-size: 104px;
   line-height: 1.04;
   font-weight: 700;
   letter-spacing: 0;
@@ -63,9 +63,8 @@ body {
   display: flex;
   align-items: center;
   padding: 50px 44px;
-  border-radius: 32px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 28px 70px rgba(28, 20, 78, 0.22);
+  border-radius: 0;
+  background: transparent;
 }
 
 .description {
